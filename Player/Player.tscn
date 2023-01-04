@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Player/player.png" type="Texture" id=1]
 
@@ -405,6 +405,29 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "FightLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "FightDown"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "FightRight"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "FightUp"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=33]
+blend_point_0/node = SubResource( 29 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 30 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 31 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 32 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=24]
 animation = "RunLeft"
 
@@ -452,6 +475,8 @@ blend_point_3/pos = Vector2( 0, 1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=20]
+states/Fighting/node = SubResource( 33 )
+states/Fighting/position = Vector2( 889, 284 )
 states/Running/node = SubResource( 28 )
 states/Running/position = Vector2( 1037, 155 )
 states/Steady/node = SubResource( 19 )
@@ -489,5 +514,6 @@ tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 21 )
+parameters/Fighting/blend_position = Vector2( -0.0172216, 0.438356 )
 parameters/Running/blend_position = Vector2( 0.134328, -0.00913239 )
 parameters/Steady/blend_position = Vector2( 0.0160735, 0.424658 )
