@@ -405,32 +405,32 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "SteadyUp"
-
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "SteadyRight"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "SteadyDown"
 
 [sub_resource type="AnimationNodeAnimation" id=18]
 animation = "SteadyLeft"
 
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "SteadyUp"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "SteadyDown"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=19]
-blend_point_0/node = SubResource( 15 )
-blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 16 )
-blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 17 )
+blend_point_0/node = SubResource( 16 )
+blend_point_0/pos = Vector2( 1, 0 )
+blend_point_1/node = SubResource( 18 )
+blend_point_1/pos = Vector2( -1, 0 )
+blend_point_2/node = SubResource( 22 )
 blend_point_2/pos = Vector2( 0, -1 )
-blend_point_3/node = SubResource( 18 )
-blend_point_3/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 23 )
+blend_point_3/pos = Vector2( 0, 1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=20]
-states/BlendSpace2D/node = SubResource( 19 )
-states/BlendSpace2D/position = Vector2( 749, 155 )
+states/Steady/node = SubResource( 19 )
+states/Steady/position = Vector2( 749, 155 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=21]
 
@@ -462,5 +462,6 @@ anims/SteadyUp = SubResource( 9 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 21 )
-parameters/BlendSpace2D/blend_position = Vector2( 0.0711825, 0.148615 )
+parameters/Steady/blend_position = Vector2( -0.185993, 0.178082 )
