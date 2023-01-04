@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Player/player.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=14]
 resource_name = "Die"
@@ -58,6 +59,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "FightLeft"
@@ -86,6 +101,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -116,6 +145,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "FightUp"
@@ -144,6 +187,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_animation_finished"
+} ]
 }
 
 [sub_resource type="Animation" id=1]
@@ -474,17 +531,33 @@ blend_point_3/node = SubResource( 23 )
 blend_point_3/pos = Vector2( 0, 1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
 [sub_resource type="AnimationNodeStateMachine" id=20]
 states/Fighting/node = SubResource( 33 )
-states/Fighting/position = Vector2( 889, 284 )
+states/Fighting/position = Vector2( 749, 247 )
 states/Running/node = SubResource( 28 )
 states/Running/position = Vector2( 1037, 155 )
 states/Steady/node = SubResource( 19 )
 states/Steady/position = Vector2( 749, 155 )
+transitions = [ "Steady", "Running", SubResource( 35 ), "Running", "Steady", SubResource( 36 ), "Steady", "Fighting", SubResource( 37 ), "Fighting", "Steady", SubResource( 38 ) ]
+start_node = "Steady"
+graph_offset = Vector2( 281, 62 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=21]
 
+[sub_resource type="CapsuleShape2D" id=34]
+radius = 4.0
+height = 6.0
+
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -514,6 +587,11 @@ tree_root = SubResource( 20 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 21 )
-parameters/Fighting/blend_position = Vector2( -0.0172216, 0.438356 )
-parameters/Running/blend_position = Vector2( 0.134328, -0.00913239 )
-parameters/Steady/blend_position = Vector2( 0.0160735, 0.424658 )
+parameters/Fighting/blend_position = Vector2( 0, 0 )
+parameters/Running/blend_position = Vector2( 0, 0 )
+parameters/Steady/blend_position = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 15 )
+rotation = -1.5708
+shape = SubResource( 34 )
