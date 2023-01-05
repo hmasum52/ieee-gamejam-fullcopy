@@ -560,6 +560,7 @@ height = 6.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -13 )
 texture = ExtResource( 1 )
 flip_h = true
 hframes = 6
@@ -592,6 +593,6 @@ parameters/Running/blend_position = Vector2( 0, 0 )
 parameters/Steady/blend_position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 15 )
+position = Vector2( 0, 2 )
 rotation = -1.5708
 shape = SubResource( 34 )
