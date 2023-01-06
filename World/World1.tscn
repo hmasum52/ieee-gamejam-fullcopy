@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=2]
@@ -7,6 +7,140 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/BigTree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy/Enemy.gd" type="Script" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "IdleLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "IdleRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "RunLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "RunRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="World1" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -51,9 +185,6 @@ __meta__ = {
 
 [node name="Sprite" parent="YSort/Trees/BigTree" index="0"]
 frame = 3
-
-[node name="Enemy" parent="YSort/Trees/BigTree" instance=ExtResource( 7 )]
-position = Vector2( -209, -76 )
 
 [node name="BigTree3" parent="YSort/Trees" instance=ExtResource( 6 )]
 position = Vector2( 247, 96 )
@@ -114,8 +245,30 @@ position = Vector2( -41, 52 )
 [node name="Grass3" parent="YSort/Grass" instance=ExtResource( 2 )]
 position = Vector2( -40, 67 )
 
+[node name="Enemy" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( -69, 70 )
+
+[node name="Enemy2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 36, 45 )
+script = ExtResource( 8 )
+
+[node name="Sprite" parent="YSort/Enemy2" index="0"]
+region_rect = Rect2( 16, 320, 256, 32 )
+
+[node name="AnimationPlayer" parent="YSort/Enemy2" index="1"]
+anims/IdleLeft = SubResource( 1 )
+anims/IdleRight = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+anims/RunLeft = SubResource( 4 )
+anims/RunRight = SubResource( 5 )
+
+[node name="AnimationTree" parent="YSort/Enemy2" index="2"]
+parameters/playback = SubResource( 6 )
+
 [editable path="YSort/Trees/BigTree"]
 [editable path="YSort/Trees/BigTree3"]
 [editable path="YSort/Trees/Tree"]
 [editable path="YSort/Trees/Tree2"]
 [editable path="YSort/Trees/Tree4"]
+[editable path="YSort/Enemy2"]
+[editable path="YSort/Enemy2/HurtBox"]
