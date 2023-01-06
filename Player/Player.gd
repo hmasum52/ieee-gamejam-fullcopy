@@ -42,6 +42,7 @@ func move_state(delta):
 		animationTree.set("parameters/Fighting/blend_position", input_vec)
 		animationState.travel("Running")
 		velocity = velocity.move_toward(input_vec*MAX_SPEED, ACCELERATION * delta)
+		get_node("HitboxPivot/SwordHitbox").knockback_vector = input_vec
 	else:
 		animationState.travel("Steady")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION*delta)
