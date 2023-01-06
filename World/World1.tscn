@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://World/BigTree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Objects/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Teleporter/Teleporter.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleLeft"
@@ -271,6 +272,16 @@ anims/RunRight = SubResource( 5 )
 
 [node name="AnimationTree" parent="Elements/Enemies/Enemy2" index="2"]
 parameters/playback = SubResource( 6 )
+
+[node name="Teleporters" type="Node2D" parent="."]
+
+[node name="Teleporter1" parent="Teleporters" instance=ExtResource( 9 )]
+position = Vector2( -39, -4 )
+target = NodePath("../Teleporter2")
+
+[node name="Teleporter2" parent="Teleporters" instance=ExtResource( 9 )]
+position = Vector2( 20, -8 )
+target = NodePath("../Teleporter1")
 
 [editable path="Elements/Trees/BigTree"]
 [editable path="Elements/Trees/BigTree3"]
