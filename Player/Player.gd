@@ -19,6 +19,7 @@ onready var animationState : AnimationNodeStateMachinePlayback = animationTree.g
 
 func _ready():
 	animationTree.active = true
+	get_node("HitboxPivot/SwordHitbox/CollisionShape2D").disabled = true
 
 func _physics_process(delta):
 	# determine which state to run
