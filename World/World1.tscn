@@ -144,7 +144,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="World1" type="Node2D"]
-position = Vector2( 1, 0 )
+position = Vector2( 0, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -70, 18 )
@@ -272,6 +272,7 @@ anims/RunRight = SubResource( 5 )
 
 [node name="AnimationTree" parent="Elements/Enemies/Enemy2" index="2"]
 parameters/playback = SubResource( 6 )
+parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="Teleporters" type="Node2D" parent="."]
 
@@ -290,3 +291,4 @@ target = NodePath("../Teleporter1")
 [editable path="Elements/Trees/Tree4"]
 [editable path="Elements/Enemies/Enemy2"]
 [editable path="Elements/Enemies/Enemy2/HurtBox"]
+[editable path="Elements/Enemies/Enemy2/PlayerDetectionZone"]
