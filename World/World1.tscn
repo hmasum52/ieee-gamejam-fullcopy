@@ -21,7 +21,7 @@ script = ExtResource( 12 )
 [node name="Maps" type="YSort" parent="."]
 
 [node name="Player" parent="Maps" instance=ExtResource( 5 )]
-position = Vector2( 494, 337 )
+position = Vector2( 533, 287 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Maps/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -45,7 +45,7 @@ position = Vector2( 1638, 349 )
 [node name="Teleporters" type="Node2D" parent="."]
 
 [node name="Teleporter1" parent="Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 521, 301 )
+position = Vector2( 538, 281 )
 target = NodePath("../Teleporter2")
 
 [node name="Teleporter2" parent="Teleporters" instance=ExtResource( 9 )]
@@ -54,7 +54,7 @@ target = NodePath("../Teleporter1")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
-color = Color( 0.372549, 0.168627, 0.168627, 1 )
+color = Color( 0.192157, 0.0941176, 0.0941176, 1 )
 
 [node name="MusicPlayer" parent="." instance=ExtResource( 14 )]
 default_music = ExtResource( 16 )
@@ -71,7 +71,7 @@ position = Vector2( 557, 521 )
 source = NodePath("../TeleporterSource")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 494, 337 )
+position = Vector2( 533, 287 )
 current = true
 
 [connection signal="area_entered" from="Maps/Map2" to="." method="_on_Map2_area_entered"]

@@ -95,7 +95,7 @@ graph_offset = Vector2( 0, 86.5749 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
 [node name="Door" type="StaticBody2D"]
-position = Vector2( 0, 6 )
+position = Vector2( 0, -35 )
 script = ExtResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="."]
