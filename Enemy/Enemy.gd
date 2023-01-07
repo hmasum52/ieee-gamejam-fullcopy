@@ -16,6 +16,8 @@ onready var animationTree : AnimationTree = $AnimationTree
 onready var animationState : AnimationNodeStateMachinePlayback = animationTree.get("parameters/playback")
 onready var hurtbox = $HurtBox
 
+onready var health_progress : TextureProgress = $LifeBar
+
 enum {
 	IDLE, 
 	WANDER,
@@ -61,6 +63,7 @@ func _on_HurtBox_area_entered(area):
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
 	stats.health -= area.damage
+	health_progress.set_value(stats.health)
 	knockback = area.knockback_vector *120
 
 
