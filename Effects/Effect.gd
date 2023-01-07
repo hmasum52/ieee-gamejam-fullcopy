@@ -5,7 +5,7 @@ func _ready():
 	frame = 0
 	
 	play("Animate")
-	# sex
+	
 
 
 func _on_animation_finished():

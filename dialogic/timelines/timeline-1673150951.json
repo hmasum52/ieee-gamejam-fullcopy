@@ -1,0 +1,31 @@
+{
+	"events": [
+		{
+			"character": "character-1673150962.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You have made this far! But you shall not pass any farther."
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I will beat your minions. I see through your trickeries. I will find you and I will kill you."
+		},
+		{
+			"character": "character-1673150962.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ha ha ha! Good luck with that"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673150951.json",
+		"name": "Dungeon"
+	}
+}
