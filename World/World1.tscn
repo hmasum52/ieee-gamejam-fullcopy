@@ -341,6 +341,7 @@ anims/RunRight = SubResource( 5 )
 
 [node name="AnimationTree" parent="Map1/Elements/Enemies/Enemy2" index="2"]
 parameters/playback = SubResource( 6 )
+parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map1"]
 position = Vector2( 133.5, 90 )
