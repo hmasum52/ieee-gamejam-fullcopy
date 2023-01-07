@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World/Backgrounds/Tileset/TilesetElement.tres" type="TileSet" id=1]
 [ext_resource path="res://Resource/Music/13 - Mystical.ogg" type="AudioStream" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://World/Music/MusicArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/FullCopy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/Capsicum.tscn" type="PackedScene" id=10]
+[ext_resource path="res://World/Tomato.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/Carrot.tscn" type="PackedScene" id=12]
 [ext_resource path="res://World/Backgrounds/Tileset/Tileset.tres" type="TileSet" id=13]
 [ext_resource path="res://World/Backgrounds/Tileset/TilesetFloor.tres" type="TileSet" id=14]
 
@@ -1048,6 +1052,29 @@ position = Vector2( 366, 62 )
 
 [node name="Enemy13" parent="Elements/Enemies" instance=ExtResource( 8 )]
 position = Vector2( 373, 209 )
+
+[node name="Veggies" type="YSort" parent="Elements"]
+
+[node name="FullCopy" parent="Elements/Veggies" instance=ExtResource( 9 )]
+position = Vector2( 125, -88 )
+
+[node name="Carrot2" parent="Elements/Veggies" instance=ExtResource( 12 )]
+position = Vector2( 264, 23 )
+
+[node name="Carrot" parent="Elements/Veggies" instance=ExtResource( 12 )]
+position = Vector2( 72, 71 )
+
+[node name="Tomato" parent="Elements/Veggies" instance=ExtResource( 11 )]
+position = Vector2( 111, -24 )
+
+[node name="Capsicum" parent="Elements/Veggies" instance=ExtResource( 10 )]
+position = Vector2( 324, 92 )
+
+[node name="Tomato2" parent="Elements/Veggies" instance=ExtResource( 11 )]
+position = Vector2( -109, 92 )
+
+[node name="FullCopy2" parent="Elements/Veggies" instance=ExtResource( 9 )]
+position = Vector2( -41, 25 )
 
 [node name="MusicArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 559, 307 )
