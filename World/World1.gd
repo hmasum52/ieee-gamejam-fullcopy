@@ -5,7 +5,6 @@ onready var canvasmodulate = $CanvasModulate
 
 func _ready():
 	print("World is ready")
-	#$CanvasModulate.set_color(Color(1, 1, 1, 0))
 	$CanvasModulate.visible = false
 	print($CanvasModulate.visible)
 
