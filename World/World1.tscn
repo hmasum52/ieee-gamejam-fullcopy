@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=2]
@@ -9,6 +9,13 @@
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Objects/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://World/Teleporter/Teleporter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Resource/Music/16 - Melancholia.ogg" type="AudioStream" id=10]
+[ext_resource path="res://World/Music/MusicPlayer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/Music/MusicArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Resource/Music/13 - Mystical.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Resource/Music/18 - Aquatic.ogg" type="AudioStream" id=14]
+[ext_resource path="res://World/Teleporter/TeleporterDest.tscn" type="PackedScene" id=15]
+[ext_resource path="res://World/Teleporter/TeleporterSource.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleLeft"
@@ -142,6 +149,9 @@ tracks/1/keys = {
 }
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 150, 101.5 )
 
 [node name="World1" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -280,8 +290,38 @@ position = Vector2( -39, -4 )
 target = NodePath("../Teleporter2")
 
 [node name="Teleporter2" parent="Teleporters" instance=ExtResource( 9 )]
-position = Vector2( 20, -8 )
+position = Vector2( 282, 126 )
 target = NodePath("../Teleporter1")
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 11 )]
+default_music = ExtResource( 14 )
+
+[node name="MusicArea" parent="." instance=ExtResource( 12 )]
+music = ExtResource( 10 )
+
+[node name="Shape" type="CollisionShape2D" parent="MusicArea"]
+position = Vector2( -34, 7 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicArea2" parent="." instance=ExtResource( 12 )]
+music = ExtResource( 13 )
+
+[node name="Shape" type="CollisionShape2D" parent="MusicArea2"]
+position = Vector2( 281, 128 )
+shape = SubResource( 7 )
+
+[node name="TelportersUni" type="Node2D" parent="."]
+
+[node name="TeleporterSource" parent="TelportersUni" instance=ExtResource( 16 )]
+position = Vector2( -113, 136 )
+target = NodePath("../TeleporterDest")
+
+[node name="TeleporterDest" parent="TelportersUni" instance=ExtResource( 15 )]
+position = Vector2( -38, 137 )
+source = NodePath("../TeleporterSource")
 
 [editable path="Elements/Trees/BigTree"]
 [editable path="Elements/Trees/BigTree3"]
