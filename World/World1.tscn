@@ -12,6 +12,13 @@
 [ext_resource path="res://World2/World2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World2/assets/dungeon.png" type="Texture" id=11]
 [ext_resource path="res://World/World1.gd" type="Script" id=12]
+[ext_resource path="res://Resource/Music/16 - Melancholia.ogg" type="AudioStream" id=10]
+[ext_resource path="res://World/Music/MusicPlayer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/Music/MusicArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Resource/Music/13 - Mystical.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Resource/Music/18 - Aquatic.ogg" type="AudioStream" id=14]
+[ext_resource path="res://World/Teleporter/TeleporterDest.tscn" type="PackedScene" id=15]
+[ext_resource path="res://World/Teleporter/TeleporterSource.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "IdleLeft"
@@ -374,6 +381,7 @@ position = Vector2( -39, -4 )
 target = NodePath("../Teleporter2")
 
 [node name="Teleporter2" parent="Teleporters" instance=ExtResource( 9 )]
+<<<<<<< HEAD
 position = Vector2( 936, 55 )
 target = NodePath("../Teleporter1")
 
@@ -395,3 +403,45 @@ color = Color( 0.372549, 0.168627, 0.168627, 1 )
 [editable path="Map2/Dungeonworld"]
 [editable path="Map2/Dungeonworld/YSort/Player"]
 [editable path="Map2/Dungeonworld/YSort/Player/HitboxPivot/SwordHitbox"]
+=======
+position = Vector2( 282, 126 )
+target = NodePath("../Teleporter1")
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 11 )]
+default_music = ExtResource( 14 )
+
+[node name="MusicArea" parent="." instance=ExtResource( 12 )]
+music = ExtResource( 10 )
+
+[node name="Shape" type="CollisionShape2D" parent="MusicArea"]
+position = Vector2( -34, 7 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicArea2" parent="." instance=ExtResource( 12 )]
+music = ExtResource( 13 )
+
+[node name="Shape" type="CollisionShape2D" parent="MusicArea2"]
+position = Vector2( 281, 128 )
+shape = SubResource( 7 )
+
+[node name="TelportersUni" type="Node2D" parent="."]
+
+[node name="TeleporterSource" parent="TelportersUni" instance=ExtResource( 16 )]
+position = Vector2( -113, 136 )
+target = NodePath("../TeleporterDest")
+
+[node name="TeleporterDest" parent="TelportersUni" instance=ExtResource( 15 )]
+position = Vector2( -38, 137 )
+source = NodePath("../TeleporterSource")
+
+[editable path="Elements/Trees/BigTree"]
+[editable path="Elements/Trees/BigTree3"]
+[editable path="Elements/Trees/Tree"]
+[editable path="Elements/Trees/Tree2"]
+[editable path="Elements/Trees/Tree4"]
+[editable path="Elements/Enemies/Enemy2"]
+[editable path="Elements/Enemies/Enemy2/HurtBox"]
+>>>>>>> origin/sound-effects
