@@ -14,7 +14,7 @@ onready var playerDetectionZone = $PlayerDetectionZone
 onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 onready var animationTree : AnimationTree = $AnimationTree
 onready var animationState : AnimationNodeStateMachinePlayback = animationTree.get("parameters/playback")
-
+onready var hurtbox = $HurtBox
 
 enum {
 	IDLE, 
@@ -58,6 +58,8 @@ func seek_player():
 		state = CHASE
 
 func _on_HurtBox_area_entered(area):
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()
 	stats.health -= area.damage
 	knockback = area.knockback_vector *120
 

@@ -1008,7 +1008,7 @@ position = Vector2( 1, -21 )
 [node name="Enemies" type="YSort" parent="Elements"]
 
 [node name="Enemy" parent="Elements/Enemies" instance=ExtResource( 8 )]
-position = Vector2( 390, -121 )
+position = Vector2( 187, -59 )
 
 [node name="Enemy3" parent="Elements/Enemies" instance=ExtResource( 8 )]
 position = Vector2( -63, -35 )
