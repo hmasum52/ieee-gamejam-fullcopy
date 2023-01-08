@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://World/Actor/Player/Boss.gd" type="Script" id=1]
 [ext_resource path="res://World/Actor/Player/Sprite.gd" type="Script" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://World/Actor/Player/GreenNinja/SpriteSheet.png" type="Texture" id=4]
 [ext_resource path="res://World/Actor/Weapon/Weapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Actor/Monster/SndDeath.wav" type="AudioStream" id=6]
+[ext_resource path="res://Enemy/PlayerDetectionZone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy/Stats.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AttackBox/HurtBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Hud/LifeBarMiniUnder.png" type="Texture" id=10]
+[ext_resource path="res://Hud/LifeBarMiniProgress.png" type="Texture" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -178,9 +183,19 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 5, 4 )
 
+[sub_resource type="CircleShape2D" id=28]
+radius = 84.0238
+
+[sub_resource type="CircleShape2D" id=29]
+radius = 33.0151
+
+[sub_resource type="CapsuleShape2D" id=30]
+radius = 9.0
+height = 12.0
+
 [node name="Boss" type="KinematicBody2D"]
-collision_layer = 4
-collision_mask = 17
+collision_layer = 16
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="Shadow" type="Sprite" parent="."]
@@ -212,6 +227,36 @@ shape = SubResource( 27 )
 [node name="SndHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+shape = SubResource( 28 )
+
+[node name="WeaponDetectionZone" parent="." instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="WeaponDetectionZone" index="0"]
+shape = SubResource( 29 )
+
+[node name="Stats" parent="." instance=ExtResource( 8 )]
+max_health = 10
+
+[node name="HurtBox" parent="." instance=ExtResource( 9 )]
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 0, 6 )
+shape = SubResource( 30 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -8.0
+margin_top = -14.0
+margin_right = 10.0
+margin_bottom = -10.0
+max_value = 10.0
+step = 2.0
+value = 10.0
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 11 )
+
 [connection signal="action_pressed" from="." to="Sprite" method="action_started"]
 [connection signal="action_pressed" from="." to="Weapon" method="on_attack"]
 [connection signal="change_direction" from="." to="Sprite" method="_on_change_direction"]
@@ -219,3 +264,9 @@ stream = ExtResource( 6 )
 [connection signal="velocity_changed" from="." to="Sprite" method="_on_velocity_changed"]
 [connection signal="timeout" from="Sprite/ActionTime" to="." method="_on_ActionTime_timeout"]
 [connection signal="timeout" from="Sprite/ActionTime" to="Sprite" method="_on_ActionTime_timeout"]
+[connection signal="area_entered" from="PlayerDetectionZone" to="PlayerDetectionZone" method="_on_PlayerDetectionZone_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
+[editable path="PlayerDetectionZone"]
+[editable path="WeaponDetectionZone"]
+[editable path="HurtBox"]

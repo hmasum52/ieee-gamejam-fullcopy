@@ -25,7 +25,10 @@ script = ExtResource( 12 )
 [node name="Maps" type="YSort" parent="."]
 
 [node name="Player" parent="Maps" instance=ExtResource( 5 )]
-position = Vector2( 898, 291 )
+position = Vector2( 892, 288 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimationTree" parent="Maps/Player" index="2"]
 parameters/playback = SubResource( 12 )
@@ -96,7 +99,7 @@ position = Vector2( 973, 1098 )
 source = NodePath("../TeleporterSource2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 898, 291 )
+position = Vector2( 892, 288 )
 current = true
 
 [node name="HealthUI" parent="Camera2D" instance=ExtResource( 3 )]

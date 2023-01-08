@@ -11,34 +11,43 @@ var right:bool = false
 var up:bool = false
 var down:bool = false
 var move_axis:Vector2 = Vector2() setget set_move_axis
-var speed:float = 90
+var speed:float = 40
 var velocity:Vector2 = Vector2() setget set_velocity
 var push_velocity:Vector2 = Vector2()
 var bloc_move = false
 var disabled = false setget set_disabled
 onready var start_pos = global_position
+onready var life_bar:TextureProgress = $HealthBar
 
 
 onready var tween:Tween = $Sprite/Tween
 onready var sprite:AnimatedSprite = $Sprite
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var weaponDetectionZone = $WeaponDetectionZone
+onready var stats = $Stats
+
 
 func _process(delta):
-	if bloc_move:
-		return
-	left = Input.is_action_pressed("move_left")
-	right = Input.is_action_pressed("move_right")
-	up = Input.is_action_pressed("move_up")
-	down = Input.is_action_pressed("move_down")
-	self.move_axis = Vector2(-int(left)+int(right),-int(up)+int(down))
-	if Input.is_action_pressed("action"):
+	
+	
+	if weaponDetectionZone.player != null:
 		emit_signal("action_pressed")
-		bloc_move = true
 		self.move_axis = Vector2.ZERO
 		self.velocity = Vector2.ZERO
+	elif playerDetectionZone.player != null:
+		self.move_axis = (playerDetectionZone.player.global_position - global_position).normalized()
+		print(self.move_axis)
+		
+	else:
+		self.move_axis = Vector2(0, 0)
+		
 
 
 func _physics_process(delta):
-	push_velocity = push_velocity.linear_interpolate(Vector2.ZERO,0.1)
+	push_velocity = Vector2(0, 0)
+	
+	if (playerDetectionZone.player != null):
+		move_and_slide(Vector2(3, 3))
 	velocity = move_and_slide((velocity+push_velocity).floor())
 	emit_signal("position_changed",global_position)
 
@@ -99,3 +108,13 @@ func set_disabled(v):
 	disabled = v
 	set_process(!v)
 	set_physics_process(!v)
+
+
+func _on_HurtBox_area_entered(area):
+	print("Attacked by player")
+	stats.health -= 2
+	life_bar.set_value(stats.health)
+	print(stats.health)
+	if (stats.health <= 0):
+		print("Died")
+		queue_free()

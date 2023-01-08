@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://World/Backgrounds/Tileset/TilesetFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://World/Backgrounds/Tileset/TilesetInteriorWall.tres" type="TileSet" id=2]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Actor/Player/Boss.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Potion.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -395,7 +397,7 @@ tile_data = PoolIntArray( 131075, 32, 0, 131076, 32, 1, 131077, 32, 1, 131078, 3
 [node name="Enemies" type="YSort" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 103, 69 )
+position = Vector2( 210, 69 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -407,7 +409,7 @@ region_rect = Rect2( 16, 272, 256, 32 )
 parameters/playback = SubResource( 1 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 270, 57 )
+position = Vector2( 164, 110 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -427,7 +429,7 @@ anims/RunRight = SubResource( 7 )
 parameters/playback = SubResource( 8 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 200, 162 )
+position = Vector2( 206, 150 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -445,6 +447,20 @@ anims/RunRight = SubResource( 14 )
 
 [node name="AnimationTree" parent="Enemies/Enemy3" index="3"]
 parameters/playback = SubResource( 15 )
+
+[node name="Boss" parent="." instance=ExtResource( 4 )]
+position = Vector2( 273, 94 )
+
+[node name="potions" type="YSort" parent="."]
+
+[node name="Potion" parent="potions" instance=ExtResource( 5 )]
+position = Vector2( 179, 105 )
+
+[node name="Potion2" parent="potions" instance=ExtResource( 5 )]
+position = Vector2( 178, 55 )
+
+[node name="Potion3" parent="potions" instance=ExtResource( 5 )]
+position = Vector2( 264, 158 )
 
 [editable path="Enemies/Enemy"]
 [editable path="Enemies/Enemy/HurtBox"]
