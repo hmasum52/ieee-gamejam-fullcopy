@@ -6,6 +6,9 @@ const MUTE_VOLUME = -60
 export(AudioStream) var default_music = null
 
 
+func _ready():
+	_on_music_changed(null)
+
 func _on_music_changed(v):
 	if v == null:
 		v = default_music

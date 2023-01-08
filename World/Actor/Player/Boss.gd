@@ -116,5 +116,8 @@ func _on_HurtBox_area_entered(area):
 	life_bar.set_value(stats.health)
 	print(stats.health)
 	if (stats.health <= 0):
-		print("Died")
+		
+		var dialogic = Dialogic.start("GameOver")
+#		add_child(dialogic)
+		get_tree().get_root().add_child(dialogic)
 		queue_free()

@@ -131,7 +131,10 @@ position = Vector2( 9.34519, 204.429 )
 [node name="Enemies" type="YSort" parent="YSort"]
 
 [node name="Enemy" parent="YSort/Enemies" instance=ExtResource( 3 )]
-position = Vector2( -125.716, -76.432 )
+position = Vector2( -126.716, -31.432 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimationTree" parent="YSort/Enemies/Enemy" index="3"]
 parameters/playback = SubResource( 11 )

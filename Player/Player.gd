@@ -69,3 +69,9 @@ func _on_HurtBox_area_entered(area):
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
 	stats.health -= 1
+	if (stats.health <= 0):
+		print("Died")
+		
+		var dialogic = Dialogic.start("Advice")
+		get_parent().get_parent().add_child(dialogic)
+
