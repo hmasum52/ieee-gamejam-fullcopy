@@ -1,15 +1,15 @@
 {
-	"color": "#ff1fcead",
-	"description": "The prince who lost his princess",
+	"color": "#ffff0000",
+	"description": "",
 	"display_name": "",
 	"display_name_bool": false,
-	"id": "character-1673148582.json",
+	"id": "character-1673150962.json",
 	"mirror_portraits": false,
-	"name": "Masum",
+	"name": "Elf Master",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": -10,
-	"offset_y": 100,
+	"offset_x": 0,
+	"offset_y": 0,
 	"portraits": [
 		{
 			"name": "Default",

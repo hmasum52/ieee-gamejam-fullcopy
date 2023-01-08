@@ -1,0 +1,67 @@
+{
+	"events": [
+		{
+			"character": "character-1673150962.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You are alive! I must say I am surprised"
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Didn't I say I will come for my princess?"
+		},
+		{
+			"character": "character-1673150962.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But are you sure the princess wants to go with you?"
+		},
+		{
+			"character": "character-1673150971.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Begone Masum. Why are you here? I will not go with you."
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What!!!!!!!"
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What trickeries have you done to my princess! "
+		},
+		{
+			"character": "character-1673150962.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Come and you will see."
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bring it on!"
+		},
+		{
+			"character": "character-1673148713.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I knew it! I felt some unbalance. Seems like the princess is not acting like before. Don't harm her while attacking the Elf Master. "
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673151505.json",
+		"name": "Elf Master"
+	}
+}

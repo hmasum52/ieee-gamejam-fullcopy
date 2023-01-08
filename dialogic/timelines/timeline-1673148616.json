@@ -31,6 +31,12 @@
 			"text": "Defeat the trolls and proceed to the next level. Gather as much coins as you can by defeating them all."
 		},
 		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Use arrow keys for navigation and Space for attack and interaction"
+		},
+		{
 			"event_id": "dialogic_022",
 			"transition_duration": 1
 		}
