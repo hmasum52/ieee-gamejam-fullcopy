@@ -68,4 +68,4 @@ func _on_HurtBox_area_entered(area):
 	print(global_position)
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
-#	stats.health -= 1
+	stats.health -= 1

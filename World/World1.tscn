@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/Map1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World3/Map3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
@@ -26,7 +25,7 @@ script = ExtResource( 12 )
 [node name="Maps" type="YSort" parent="."]
 
 [node name="Player" parent="Maps" instance=ExtResource( 5 )]
-position = Vector2( 893, 295 )
+position = Vector2( 898, 291 )
 
 [node name="AnimationTree" parent="Maps/Player" index="2"]
 parameters/playback = SubResource( 12 )
@@ -44,17 +43,14 @@ position = Vector2( -29, 85 )
 collision_layer = 0
 collision_mask = 2
 
-[node name="Word2" parent="Maps/Map2" instance=ExtResource( 10 )]
+[node name="World2" parent="Maps/Map2" instance=ExtResource( 10 )]
 position = Vector2( 901, 33 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maps/Map2"]
 position = Vector2( 1590, 484 )
 shape = SubResource( 11 )
 
-[node name="Enemy" parent="Maps" instance=ExtResource( 2 )]
-position = Vector2( 1638, 349 )
-
-[node name="YSort" parent="Maps" instance=ExtResource( 4 )]
+[node name="Map3" parent="Maps" instance=ExtResource( 4 )]
 position = Vector2( 884, 987 )
 
 [node name="Black" parent="Maps" instance=ExtResource( 6 )]
@@ -100,7 +96,7 @@ position = Vector2( 973, 1098 )
 source = NodePath("../TeleporterSource2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 893, 295 )
+position = Vector2( 898, 291 )
 current = true
 
 [node name="HealthUI" parent="Camera2D" instance=ExtResource( 3 )]
