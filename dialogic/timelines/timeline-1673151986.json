@@ -1,0 +1,67 @@
+{
+	"events": [
+		{
+			"character": "character-1673150971.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nooooooooooooo! What have you done! "
+		},
+		{
+			"character": "character-1673148713.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "What? I thought killing the Elf will clear all the enchantments on the princess. But it's the same as before."
+		},
+		{
+			"character": "character-1673150971.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Enchantments? What did you think? I was kidnapped?"
+		},
+		{
+			"character": "character-1673150971.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Well breaking news Mr. Hero! Life is not all about you. I came here myself. For my true love."
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But I thought I was your true love. "
+		},
+		{
+			"character": "character-1673150971.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Who said I even liked you? You are one puny creature, everything you got is through nepotism. My Elf created everything by himself. And now look what have you done."
+		},
+		{
+			"character": "character-1673150971.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You Will Pay For This!"
+		},
+		{
+			"character": "character-1673148713.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Looks like I have some emmergency business with the neighbouring kingdom. Goodluck hero. "
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yeah run you coward.........."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673151986.json",
+		"name": "Surprise Boss"
+	}
+}

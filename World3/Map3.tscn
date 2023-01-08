@@ -1,0 +1,460 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://World/Backgrounds/Tileset/TilesetFloor.tres" type="TileSet" id=1]
+[ext_resource path="res://World/Backgrounds/Tileset/TilesetInteriorWall.tres" type="TileSet" id=2]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "AttackRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -25.0, 0.0, 25.0, 45.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "IdleLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "IdleRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -46.8 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "RunLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "RunRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+
+[sub_resource type="Animation" id=9]
+resource_name = "AttackRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -25.0, 0.0, 25.0, 45.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "IdleLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "IdleRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -46.8 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "RunLeft"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "RunRight"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
+
+[node name="Map3" type="YSort"]
+
+[node name="TileWall" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131073, 4, 0, -196608, 4, 0, -196607, 4, 0, -196606, 4, 0, -196605, 4, 0, -196604, 4, 0, -196603, 4, 0, -196602, 4, 0, -196601, 4, 0, -196600, 4, 0, -196599, 4, 0, -196598, 4, 0, -196597, 4, 0, -196596, 4, 0, -196595, 4, 0, -196594, 4, 0, -196593, 4, 0, -196592, 4, 0, -196591, 4, 0, -196590, 4, 0, -196589, 4, 0, -196588, 4, 0, -196587, 4, 0, -196586, 4, 0, -65537, 4, 0, -131072, 4, 0, -131071, 4, 0, -131070, 4, 0, -131069, 4, 0, -131068, 4, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, -131062, 4, 0, -131061, 4, 0, -131060, 4, 0, -131059, 4, 0, -131058, 4, 0, -131057, 4, 0, -131056, 4, 0, -131055, 4, 0, -131054, 4, 0, -131053, 4, 0, -131052, 4, 0, -131051, 4, 0, -131050, 4, 0, -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0, -65519, 4, 0, -65518, 4, 0, -65517, 4, 0, -65516, 4, 0, -65515, 4, 0, -65514, 4, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 131071, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 1, 65539, 4, 5, 65540, 4, 5, 65541, 4, 5, 65542, 4, 5, 65543, 4, 5, 65544, 4, 5, 65545, 4, 5, 65546, 4, 5, 65547, 4, 5, 65548, 4, 5, 65549, 4, 5, 65550, 4, 5, 65551, 4, 5, 65552, 4, 5, 65553, 4, 5, 65554, 4, 5, 65555, 4, 65543, 65556, 4, 0, 65557, 4, 0, 65558, 4, 0, 196607, 4, 0, 131072, 4, 0, 131073, 4, 0, 131074, 4, 196609, 131091, 4, 196614, 131092, 4, 0, 131093, 4, 0, 131094, 4, 0, 262143, 4, 0, 196608, 4, 0, 196609, 4, 0, 196610, 4, 196609, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196627, 4, 196614, 196628, 4, 0, 196629, 4, 0, 196630, 4, 0, 327679, 4, 0, 262144, 4, 0, 262145, 4, 0, 262146, 4, 196609, 262163, 4, 196614, 262164, 4, 0, 262165, 4, 0, 262166, 4, 0, 393215, 4, 0, 327680, 4, 0, 327681, 4, 0, 327682, 4, 196609, 327699, 4, 196614, 327700, 4, 0, 327701, 4, 0, 327702, 4, 0, 458751, 4, 0, 393216, 4, 0, 393217, 4, 0, 393218, 4, 196609, 393235, 4, 196614, 393236, 4, 0, 393237, 4, 0, 393238, 4, 0, 524287, 4, 0, 458752, 4, 0, 458753, 4, 0, 458754, 4, 196609, 458771, 4, 196614, 458772, 4, 0, 458773, 4, 0, 458774, 4, 0, 589823, 4, 0, 524288, 4, 0, 524289, 4, 0, 524290, 4, 196609, 524307, 4, 196614, 524308, 4, 0, 524309, 4, 0, 524310, 4, 0, 655359, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 196609, 589843, 4, 196614, 589844, 4, 0, 589845, 4, 0, 589846, 4, 0, 720895, 4, 0, 655360, 4, 0, 655361, 4, 0, 655362, 4, 196609, 655379, 4, 196614, 655380, 4, 0, 655381, 4, 0, 655382, 4, 0, 786431, 4, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 524288, 720899, 4, 589829, 720900, 4, 589829, 720901, 4, 589829, 720902, 4, 589829, 720903, 4, 589829, 720904, 4, 589829, 720905, 4, 589829, 720906, 4, 589829, 720907, 4, 589829, 720908, 4, 589829, 720909, 4, 589829, 720910, 4, 589829, 720911, 4, 589829, 720912, 4, 589829, 720913, 4, 589829, 720914, 4, 589829, 720915, 4, 131079, 720916, 4, 0, 720917, 4, 0, 720918, 4, 0, 851967, 4, 0, 786432, 4, 0, 786433, 4, 0, 786434, 4, 0, 786435, 4, 0, 786436, 4, 0, 786437, 4, 0, 786438, 4, 0, 786439, 4, 0, 786440, 4, 0, 786441, 4, 0, 786442, 4, 0, 786443, 4, 0, 786444, 4, 0, 786445, 4, 0, 786446, 4, 0, 786447, 4, 0, 786448, 4, 0, 786449, 4, 0, 786450, 4, 0, 786451, 4, 0, 786452, 4, 0, 786453, 4, 0, 786454, 4, 0, 917503, 4, 0, 851968, 4, 0, 851969, 4, 0, 851970, 4, 0, 851971, 4, 0, 851972, 4, 0, 851973, 4, 0, 851974, 4, 0, 851975, 4, 0, 851976, 4, 0, 851977, 4, 0, 851978, 4, 0, 851979, 4, 0, 851980, 4, 0, 851981, 4, 0, 851982, 4, 0, 851983, 4, 0, 851984, 4, 0, 851985, 4, 0, 851986, 4, 0, 851987, 4, 0, 851988, 4, 0, 851989, 4, 0, 851990, 4, 0, 983039, 4, 0, 917504, 4, 0, 917505, 4, 0, 917506, 4, 0, 917507, 4, 0, 917508, 4, 0, 917509, 4, 0, 917510, 4, 0, 917511, 4, 0, 917512, 4, 0, 917513, 4, 0, 917514, 4, 0, 917515, 4, 0, 917516, 4, 0, 917517, 4, 0, 917518, 4, 0, 917519, 4, 0, 917520, 4, 0, 917521, 4, 0, 917522, 4, 0, 917523, 4, 0, 917524, 4, 0, 917525, 4, 0, 917526, 4, 0, 1048575, 4, 0, 983040, 4, 0, 983041, 4, 0, 983042, 4, 0, 983043, 4, 0, 983044, 4, 0, 983045, 4, 0, 983046, 4, 0, 983047, 4, 0, 983048, 4, 0, 983049, 4, 0, 983050, 4, 0, 983051, 4, 0, 983052, 4, 0, 983053, 4, 0, 983054, 4, 0, 983055, 4, 0, 983056, 4, 0, 983057, 4, 0, 983058, 4, 0, 983059, 4, 0, 983060, 4, 0, 983061, 4, 0, 983062, 4, 0 )
+
+[node name="TileFloor" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131075, 32, 0, 131076, 32, 1, 131077, 32, 1, 131078, 32, 1, 131079, 32, 1, 131080, 32, 1, 131081, 32, 1, 131082, 32, 1, 131083, 32, 1, 131084, 32, 1, 131085, 32, 1, 131086, 32, 1, 131087, 32, 1, 131088, 32, 1, 131089, 32, 1, 131090, 32, 2, 196611, 32, 65536, 196612, 32, 262144, 196613, 32, 262144, 196614, 32, 262144, 196615, 32, 65537, 196616, 32, 262144, 196617, 32, 65537, 196618, 32, 65537, 196619, 32, 65537, 196620, 32, 262144, 196621, 32, 65537, 196622, 32, 65537, 196623, 32, 65541, 196624, 32, 131073, 196625, 32, 65542, 196626, 32, 65538, 262147, 32, 65536, 262148, 32, 262144, 262149, 32, 65537, 262150, 32, 65537, 262151, 32, 65537, 262152, 32, 262144, 262153, 32, 65537, 262154, 32, 262144, 262155, 32, 262144, 262156, 32, 262144, 262157, 32, 65537, 262158, 32, 65537, 262159, 32, 65538, 262160, 33, 0, 262161, 32, 65536, 262162, 32, 65538, 327683, 32, 65536, 327684, 32, 65541, 327685, 32, 131073, 327686, 32, 65542, 327687, 32, 262144, 327688, 32, 65537, 327689, 32, 262144, 327690, 32, 262144, 327691, 32, 262144, 327692, 32, 65537, 327693, 32, 262144, 327694, 32, 65537, 327695, 32, 131077, 327696, 32, 1, 327697, 32, 131078, 327698, 32, 65538, 393219, 32, 65536, 393220, 32, 65538, 393221, 33, 0, 393222, 32, 65536, 393223, 32, 262144, 393224, 32, 262144, 393225, 32, 262144, 393226, 32, 65537, 393227, 32, 65537, 393228, 32, 65537, 393229, 32, 262144, 393230, 32, 65537, 393231, 32, 65537, 393232, 32, 262144, 393233, 32, 65537, 393234, 32, 65538, 458755, 32, 65536, 458756, 32, 131077, 458757, 32, 1, 458758, 32, 131078, 458759, 32, 65537, 458760, 32, 65537, 458761, 32, 65537, 458762, 32, 262144, 458763, 32, 262144, 458764, 32, 262144, 458765, 32, 262144, 458766, 32, 262144, 458767, 32, 65541, 458768, 32, 131073, 458769, 32, 65542, 458770, 32, 65538, 524291, 32, 65536, 524292, 32, 65537, 524293, 32, 262144, 524294, 32, 262144, 524295, 32, 65537, 524296, 32, 65537, 524297, 32, 65537, 524298, 32, 262144, 524299, 32, 262144, 524300, 32, 65537, 524301, 32, 262144, 524302, 32, 65537, 524303, 32, 65538, 524304, 33, 0, 524305, 32, 65536, 524306, 32, 65538, 589827, 32, 65536, 589828, 32, 262144, 589829, 32, 65537, 589830, 32, 262144, 589831, 32, 65537, 589832, 32, 65537, 589833, 32, 65537, 589834, 32, 65537, 589835, 32, 65537, 589836, 32, 65537, 589837, 32, 262144, 589838, 32, 65537, 589839, 32, 131077, 589840, 32, 1, 589841, 32, 131078, 589842, 32, 65538, 655363, 32, 131072, 655364, 32, 131073, 655365, 32, 131073, 655366, 32, 131073, 655367, 32, 131073, 655368, 32, 131073, 655369, 32, 131073, 655370, 32, 131073, 655371, 32, 131073, 655372, 32, 131073, 655373, 32, 131073, 655374, 32, 131073, 655375, 32, 131073, 655376, 32, 131073, 655377, 32, 131073, 655378, 32, 131074 )
+
+[node name="Enemies" type="YSort" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 103, 69 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" parent="Enemies/Enemy" index="0"]
+region_rect = Rect2( 16, 272, 256, 32 )
+
+[node name="AnimationTree" parent="Enemies/Enemy" index="3"]
+parameters/playback = SubResource( 1 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 270, 57 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" parent="Enemies/Enemy2" index="0"]
+region_rect = Rect2( 16, 272, 256, 32 )
+
+[node name="AnimationPlayer" parent="Enemies/Enemy2" index="2"]
+anims/AttackRight = SubResource( 2 )
+anims/IdleLeft = SubResource( 3 )
+anims/IdleRight = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+anims/RunLeft = SubResource( 6 )
+anims/RunRight = SubResource( 7 )
+
+[node name="AnimationTree" parent="Enemies/Enemy2" index="3"]
+parameters/playback = SubResource( 8 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 200, 162 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" parent="Enemies/Enemy3" index="0"]
+region_rect = Rect2( 16, 272, 256, 32 )
+
+[node name="AnimationPlayer" parent="Enemies/Enemy3" index="2"]
+anims/AttackRight = SubResource( 9 )
+anims/IdleLeft = SubResource( 10 )
+anims/IdleRight = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+anims/RunLeft = SubResource( 13 )
+anims/RunRight = SubResource( 14 )
+
+[node name="AnimationTree" parent="Enemies/Enemy3" index="3"]
+parameters/playback = SubResource( 15 )
+
+[editable path="Enemies/Enemy"]
+[editable path="Enemies/Enemy/HurtBox"]
+[editable path="Enemies/Enemy/PlayerDetectionZone"]
+[editable path="Enemies/Enemy/Hitbox"]
+[editable path="Enemies/Enemy2"]
+[editable path="Enemies/Enemy2/HurtBox"]
+[editable path="Enemies/Enemy2/PlayerDetectionZone"]
+[editable path="Enemies/Enemy2/Hitbox"]
+[editable path="Enemies/Enemy3"]
+[editable path="Enemies/Enemy3/HurtBox"]
+[editable path="Enemies/Enemy3/PlayerDetectionZone"]
+[editable path="Enemies/Enemy3/Hitbox"]
