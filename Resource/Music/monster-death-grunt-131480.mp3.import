@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/monster-death-grunt-131480.mp3-23fc57817c704e703ee1624920eff925.mp3str"
+
+[deps]
+
+source_file="res://Resource/Music/monster-death-grunt-131480.mp3"
+dest_files=[ "res://.import/monster-death-grunt-131480.mp3-23fc57817c704e703ee1624920eff925.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
