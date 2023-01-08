@@ -12,12 +12,14 @@ const ACCELERATION = 500
 const MAX_SPEED = 80
 const FRICTION = 500
 var velocity: = Vector2.ZERO
+var stats = PlayerStats
 
 onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 onready var animationTree : AnimationTree = $AnimationTree
 onready var animationState : AnimationNodeStateMachinePlayback = animationTree.get("parameters/playback")
-
+onready var hurtbox = $HurtBox
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	get_node("HitboxPivot/SwordHitbox/CollisionShape2D").disabled = true
 
@@ -60,3 +62,10 @@ func attack_state(delta):
 func attack_animation_finished():
 	# print("attack animation finished")
 	state = MOVE
+
+
+func _on_HurtBox_area_entered(area):
+	print(global_position)
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()
+	stats.health -= 1

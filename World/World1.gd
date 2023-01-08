@@ -7,6 +7,8 @@ func _ready():
 	print("World is ready")
 	$CanvasModulate.visible = false
 	$Maps/Player/Light2D.visible = false
+	var dialogic = Dialogic.start("Background")
+	add_child(dialogic)
 
 
 func _on_Map2_area_entered(area):
