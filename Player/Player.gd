@@ -13,6 +13,7 @@ const MAX_SPEED = 80
 const FRICTION = 500
 var velocity: = Vector2.ZERO
 var stats = PlayerStats
+const RestartUI = preload("res://UI/HealthUI.tscn")
 
 onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 onready var animationTree : AnimationTree = $AnimationTree
@@ -71,7 +72,7 @@ func _on_HurtBox_area_entered(area):
 	stats.health -= 1
 	if (stats.health <= 0):
 		print("Died")
-		
-		var dialogic = Dialogic.start("Advice")
-		get_parent().get_parent().add_child(dialogic)
-
+		#var dialogic = Dialogic.start("Advice")
+		#get_parent().get_parent().add_child(dialogic)
+		var restart = get_parent().get_parent().get_node("Camera2D/RestartUI")
+		restart.show()
