@@ -1,0 +1,43 @@
+{
+	"events": [
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Where is my princess! Where is the love of my life!"
+		},
+		{
+			"character": "character-1673148582.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I need to find her!"
+		},
+		{
+			"character": "character-1673148713.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I hear your princess is in the dungeon with the Elf Master. But I sense a great disturbance in the force."
+		},
+		{
+			"character": "character-1673148713.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You must hurry! Take my sword and proceed. Beware of obstacles and trickeries set by the Elf Master. Expect the unexpected! Sometimes things might make you wonder \"It's not supposed to do that\""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Defeat the trolls and proceed to the next level. Gather as much coins as you can by defeating them all."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673148616.json",
+		"name": "Background"
+	}
+}
