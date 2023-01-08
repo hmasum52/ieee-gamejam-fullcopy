@@ -2,7 +2,7 @@
 - [Demo Video](https://www.youtube.com/watch?v=AVE1BS2KuCk)
 ### Play the game
 - [Webapp](https://fullcopy.netlify.app/)
-- [Windows](https://github.com/hmasum52/ieee-gamejam-fullcopy/releases/tag/First): Download .exe and .pck file to play the game in windows
+- [Windows](https://github.com/hmasum52/ieee-gamejam-fullcopy/releases/tag/stable): Download and unzip the file. Click fullcopy.exe to play.
 
 ### Tech
 - [Godot-3.5.1-stable](https://godotengine.org/en/download/windows)
